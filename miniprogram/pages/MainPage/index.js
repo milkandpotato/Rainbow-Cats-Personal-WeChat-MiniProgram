@@ -31,6 +31,12 @@ Page({
 
         userA: '',
         userB: '',
+
+        //轮播图路径
+        imageList:[
+          'Images/cover_1.jpg',
+          'Images/cover_2.jpg'
+        ]
     },
 
     async onShow(){
