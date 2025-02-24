@@ -4,12 +4,12 @@ App({
 
     this.globalData = {
       //记录使用者的openid
-      _openidA: 'onsgK5XqCMLbYXudVgh3xjV4kgWw',
-      _openidB: 'onsgK5Zc7t-bFdnFk3_krqdIRZYY',
+      _openidA: 'oA0Lz65os84YwbY2OezOutdnDVXc',
+      _openidB: 'oA0Lz6zm85boP5n1Jc4ED-wOReiA',
 
       //记录使用者的名字
-      userA: '卡比',
-      userB: '瓦豆',
+      userA: '小孙',
+      userB: '小于',
 
       //用于存储待办记录的集合名称
       collectionMissionList: 'MissionList',
@@ -18,7 +18,7 @@ App({
       collectionUserList: 'UserList',
 
       //最多单次交易积分
-      maxCredit: 500,
+      maxCredit: 10,
     }
   },
 
