@@ -32,6 +32,9 @@ Page({
         userA: '',
         userB: '',
 
+        limitA:0,
+        limitB:0,
+
         //轮播图路径
         imageList:[
           'Images/cover_1.jpg',
@@ -40,25 +43,20 @@ Page({
     },
 
     async onShow(){
-        this.getCreditA()
-        this.getCreditB()
-        this.setData({
-            userA: getApp().globalData.userA,
-            userB: getApp().globalData.userB,
-        })
+        this.getInformation();
     },
 
-    getCreditA(){
-        wx.cloud.callFunction({name: 'getElementByOpenId', data: {list: getApp().globalData.collectionUserList, _openid: getApp().globalData._openidA}})
-        .then(res => {
-          this.setData({creditA: res.result.data[0].credit})
-        })
-    },
-    
-    getCreditB(){
-        wx.cloud.callFunction({name: 'getElementByOpenId', data: {list: getApp().globalData.collectionUserList, _openid: getApp().globalData._openidB}})
-        .then(res => {
-            this.setData({creditB: res.result.data[0].credit})
-        })
-    },
+    //获取积分
+    getInformation(){
+        wx.cloud.callFunction({name: 'getList', data: {list: getApp().globalData.collectionUserList}})
+            .then(res => {
+                this.setData({
+                    creditA:res.result.data[0].credit,
+                    userA:res.result.data[0].userName,
+
+                    creditB: res.result.data[1].credit,
+                    userB:res.result.data[1].userName
+                })
+            })
+    }
 })
