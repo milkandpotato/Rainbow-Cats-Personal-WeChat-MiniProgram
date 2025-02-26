@@ -19,8 +19,8 @@ exports.main = async (context) => {
       title: context.title,
       desc: context.desc,
 
-      assignorName:context.assignor[context.assignorIndex].userName,
-      assignorOpenId:context.assignor[context.assignorIndex]._openid,
+      assignor:context.assignor[context.assignorIndex],
+      creator:context.creator,
 
       available: true,
       star: false

@@ -90,9 +90,11 @@ Page({
       title: "这道美食由我完成",
       desc: "做点可口的饭菜，或者专门被指定的美食。我这个大厨，随便下，都好吃。",
     }],
-    assignorIndex:0,
+    assignorIndex: 0,
     //指派人
     assignor: getApp().globalData.users,
+    //创建人
+    creator: null,
     list: getApp().globalData.collectionMissionList,
   },
 
@@ -173,7 +175,17 @@ Page({
       return
     }
 
-    console.log("data",this.data);
+    //创建人为当前登录人
+    await wx.cloud.callFunction({
+      name: 'getOpenId'
+    }).then(
+      (res) => {
+        this.setData({
+          creator: getApp().globalData.users.find(user => user._openid === res.result)
+        })
+      }
+    )
+
     await wx.cloud.callFunction({
       name: 'addElement',
       data: this.data
