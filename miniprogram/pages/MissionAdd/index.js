@@ -138,6 +138,7 @@ Page({
 
   //保存任务
   async saveMission() {
+    let flag = true;
     // 对输入框内容进行校验
     if (this.data.title === '') {
       wx.showToast({
@@ -145,6 +146,7 @@ Page({
         icon: 'error',
         duration: 2000
       })
+      flag = false;
       return
     }
     //校验标题长度
@@ -154,6 +156,7 @@ Page({
         icon: 'error',
         duration: 2000
       })
+      flag = false;
       return
     }
     //校验描述长度
@@ -163,6 +166,7 @@ Page({
         icon: 'error',
         duration: 2000
       })
+      flag = false;
       return
     }
     //校验积分
@@ -172,6 +176,7 @@ Page({
         icon: 'error',
         duration: 2000
       })
+      flag = false;
       return
     }
 
@@ -180,27 +185,39 @@ Page({
       name: 'getOpenId'
     }).then(
       (res) => {
-        this.setData({
-          creator: getApp().globalData.users.find(user => user._openid === res.result)
-        })
+        //判断指派人是否为自己
+        if (this.data.assignor[this.data.assignorIndex]._openid === res.result) {
+          wx.showToast({
+            title: '不可指派给自己',
+            icon: 'error',
+            duration: 2000
+          })
+          flag = false;
+          return;
+        } else {
+          this.setData({
+            creator: getApp().globalData.users.find(user => user._openid === res.result)
+          });
+        }
       }
     )
-
-    await wx.cloud.callFunction({
-      name: 'addElement',
-      data: this.data
-    }).then(
-      () => {
-        wx.showToast({
-          title: '添加成功',
-          icon: 'success',
-          duration: 1000
-        })
-      }
-    )
-    setTimeout(function () {
-      wx.navigateBack()
-    }, 1000)
+    if (flag) {
+      await wx.cloud.callFunction({
+        name: 'addElement',
+        data: this.data
+      }).then(
+        () => {
+          wx.showToast({
+            title: '添加成功',
+            icon: 'success',
+            duration: 1000
+          })
+        }
+      )
+      setTimeout(function () {
+        wx.navigateBack()
+      }, 1000)
+    }
   },
 
   // 重置所有表单项
