@@ -2,7 +2,7 @@ Page({
   //增加消息接收与发送功能
   async handleTap() {
     await this.saveMission();
-    await this.sendSubscribeMessage();
+    //await this.sendSubscribeMessage();
   },
   //发送消息
   sendSubscribeMessage(e) {

@@ -1,14 +1,26 @@
 {
   "pages": [
-    "pages/MainPage/index",
-    "pages/Mission/index",
-    "pages/MissionAdd/index",
-    "pages/MissionDetail/index",
-    "pages/Market/index",
-    "pages/MarketAdd/index",
-    "pages/MarketDetail/index",
-    "pages/Account/index",
-    "pages/ItemDetail/index"
+    "pages/tabBar/MainPage/index",
+    "pages/tabBar/Mission/index",
+    "pages/tabBar/Market/index",
+    "pages/tabBar/Account/index",
+    "pages/tabBar/ItemDetail/index"
+  ],
+  "subPackages": [
+    {
+      "root": "pages/Market",
+      "pages": [
+        "MarketAdd/index",
+        "MarketDetail/index"
+      ]
+    },
+    {
+      "root": "pages/Mission",
+      "pages": [
+        "MissionAdd/index",
+        "MissionDetail/index"
+      ]
+    }
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -20,27 +32,32 @@
   "tabBar": {
     "color": "#1a1a1a",
     "selectedColor": "#ff99aa",
-    "list": [{
-      "pagePath": "pages/MainPage/index",
-      "selectedIconPath": "images/TabBar/HomeIconColor.jpg",
-      "iconPath": "images/TabBar/HomeIconGrey.jpg",
-      "text": "首页"
-    }, {
-      "pagePath": "pages/Mission/index",
-      "selectedIconPath": "images/TabBar/MissionIconColor.jpg",
-      "iconPath": "images/TabBar/MissionIconGrey.jpg",
-      "text": "任务"
-    },{
-      "pagePath": "pages/Market/index",
-      "selectedIconPath": "images/TabBar/MarketIconColor.jpg",
-      "iconPath": "images/TabBar/MarketIconGrey.jpg",
-      "text": "商城"
-    },{
-      "pagePath": "pages/Account/index",
-      "selectedIconPath": "images/TabBar/AccountIconColor.jpg",
-      "iconPath": "images/TabBar/AccountIconGrey.jpg",
-      "text": "仓库"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/tabBar/MainPage/index",
+        "selectedIconPath": "images/TabBar/HomeIconColor.jpg",
+        "iconPath": "images/TabBar/HomeIconGrey.jpg",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/tabBar/Mission/index",
+        "selectedIconPath": "images/TabBar/MissionIconColor.jpg",
+        "iconPath": "images/TabBar/MissionIconGrey.jpg",
+        "text": "任务"
+      },
+      {
+        "pagePath": "pages/tabBar/Market/index",
+        "selectedIconPath": "images/TabBar/MarketIconColor.jpg",
+        "iconPath": "images/TabBar/MarketIconGrey.jpg",
+        "text": "商城"
+      },
+      {
+        "pagePath": "pages/tabBar/Account/index",
+        "selectedIconPath": "images/TabBar/AccountIconColor.jpg",
+        "iconPath": "images/TabBar/AccountIconGrey.jpg",
+        "text": "仓库"
+      }
+    ]
   },
   "lazyCodeLoading": "requiredComponents",
   "cloud": true,

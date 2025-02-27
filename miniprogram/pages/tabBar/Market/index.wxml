@@ -1,4 +1,4 @@
-<wxs module="util" src="../util.wxs" />
+<wxs module="util" src="../../util.wxs" />
 
 <view class="container white" wx:if="{{allItems.length === 0}}">
   <image class="background" src="Images/None.png" mode="aspectFit" />

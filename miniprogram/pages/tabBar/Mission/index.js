@@ -56,7 +56,7 @@ Page({
   },
   //转到添加任务
   async toAddPage() {
-    wx.navigateTo({url: '../MissionAdd/index'})
+    wx.navigateTo({url: '../../Mission/MissionAdd/index'})
   },
 
   //设置搜索
