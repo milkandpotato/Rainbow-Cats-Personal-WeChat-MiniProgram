@@ -1,24 +1,24 @@
 {
   "pages": [
-    "pages/tabBar/MainPage/index",
-    "pages/tabBar/Mission/index",
-    "pages/tabBar/Market/index",
-    "pages/tabBar/Account/index",
-    "pages/tabBar/ItemDetail/index"
+    "tabBar/pages/MainPage/index",
+    "tabBar/pages/Mission/index",
+    "tabBar/pages/Market/index",
+    "tabBar/pages/Account/index",
+    "tabBar/pages/ItemDetail/index"
   ],
   "subPackages": [
     {
-      "root": "pages/Market",
+      "root": "Market",
       "pages": [
-        "MarketAdd/index",
-        "MarketDetail/index"
+        "pages/MarketAdd/index",
+        "pages/MarketDetail/index"
       ]
     },
     {
-      "root": "pages/Mission",
+      "root": "Mission",
       "pages": [
-        "MissionAdd/index",
-        "MissionDetail/index"
+        "pages/MissionAdd/index",
+        "pages/MissionDetail/index"
       ]
     }
   ],
@@ -34,27 +34,27 @@
     "selectedColor": "#ff99aa",
     "list": [
       {
-        "pagePath": "pages/tabBar/MainPage/index",
-        "selectedIconPath": "images/TabBar/HomeIconColor.jpg",
-        "iconPath": "images/TabBar/HomeIconGrey.jpg",
+        "pagePath": "tabBar/pages/MainPage/index",
+        "selectedIconPath": "tabBar/pages/MainPage/images/HomeIconColor.jpg",
+        "iconPath": "tabBar/pages/MainPage/images/HomeIconGrey.jpg",
         "text": "首页"
       },
       {
-        "pagePath": "pages/tabBar/Mission/index",
-        "selectedIconPath": "images/TabBar/MissionIconColor.jpg",
-        "iconPath": "images/TabBar/MissionIconGrey.jpg",
+        "pagePath": "tabBar/pages/Mission/index",
+        "selectedIconPath": "tabBar/pages/MainPage/images/MissionIconColor.jpg",
+        "iconPath": "tabBar/pages/MainPage/images/MissionIconGrey.jpg",
         "text": "任务"
       },
       {
-        "pagePath": "pages/tabBar/Market/index",
-        "selectedIconPath": "images/TabBar/MarketIconColor.jpg",
-        "iconPath": "images/TabBar/MarketIconGrey.jpg",
+        "pagePath": "tabBar/pages/Market/index",
+        "selectedIconPath": "tabBar/pages/MainPage/images/MarketIconColor.jpg",
+        "iconPath": "tabBar/pages/MainPage/images/MarketIconGrey.jpg",
         "text": "商城"
       },
       {
-        "pagePath": "pages/tabBar/Account/index",
-        "selectedIconPath": "images/TabBar/AccountIconColor.jpg",
-        "iconPath": "images/TabBar/AccountIconGrey.jpg",
+        "pagePath": "tabBar/pages/Account/index",
+        "selectedIconPath": "tabBar/pages/MainPage/images/AccountIconColor.jpg",
+        "iconPath": "tabBar/pages/MainPage/images/AccountIconGrey.jpg",
         "text": "仓库"
       }
     ]
