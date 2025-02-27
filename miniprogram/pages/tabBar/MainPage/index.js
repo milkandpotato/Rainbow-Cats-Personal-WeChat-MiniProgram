@@ -34,8 +34,8 @@ Page({
 
         //轮播图路径
         imageList:[
-          'Images/cover_1.jpg',
-          'Images/cover_2.jpg'
+          'cloud://test-0gtbizkc74d96d88.7465-test-0gtbizkc74d96d88-1344432440/MainPage/微信图片_20250227105456.jpg',
+          'cloud://test-0gtbizkc74d96d88.7465-test-0gtbizkc74d96d88-1344432440/MainPage/微信图片_20250227105445.jpg'
         ]
     },
 
