@@ -11,6 +11,17 @@ App({
       userA: '小孙',
       userB: '小于',
 
+      users:[
+        {
+          userName:'小孙',
+          _openid:'oA0Lz65os84YwbY2OezOutdnDVXc',
+        },
+        {
+          userName:'小于',
+          _openid:'oA0Lz6zm85boP5n1Jc4ED-wOReiA',
+        }
+      ],
+
       //用于存储待办记录的集合名称
       collectionMissionList: 'MissionList',
       collectionMarketList: 'MarketList',
