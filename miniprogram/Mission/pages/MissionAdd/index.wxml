@@ -18,10 +18,6 @@
       <view class="form-cell_title">💰积分奖励</view>
       <slider min="0" max="{{maxCredit}}" block-size="15" block-color="#353535" activeColor="#ff5794" bindchange="onCreditInput" value="{{credit}}" show-value />
     </view>
-    <view class="form-cell">
-      <view class="form-cell_title">👉🏻指派人</view>
-      <picker mode="selector" bindchange="onAssignorChange" value="{{assignorIndex}}" range="{{assignor}}" range-key="userName">{{assignor[assignorIndex].userName}}</picker>
-    </view>
   </view>
 
   <view class="footer">
