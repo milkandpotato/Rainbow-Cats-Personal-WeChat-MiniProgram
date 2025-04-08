@@ -91,8 +91,6 @@ Page({
       desc: "做点可口的饭菜，或者专门被指定的美食。我这个大厨，随便下，都好吃。",
     }],
     assignorIndex: 0,
-    //指派人
-    assignor: getApp().globalData.users,
     //创建人
     creator: null,
     list: getApp().globalData.collectionMissionList,
@@ -125,14 +123,6 @@ Page({
       presetIndex: e.detail.value,
       title: this.data.presets[e.detail.value].title,
       desc: this.data.presets[e.detail.value].desc,
-    })
-  },
-
-  //修改指派人
-  onAssignorChange(e) {
-    let index = e.detail.value;
-    this.setData({
-      assignorIndex: index,
     })
   },
 
@@ -185,20 +175,9 @@ Page({
       name: 'getOpenId'
     }).then(
       (res) => {
-        //判断指派人是否为自己
-        if (this.data.assignor[this.data.assignorIndex]._openid === res.result) {
-          wx.showToast({
-            title: '不可指派给自己',
-            icon: 'error',
-            duration: 2000
-          })
-          flag = false;
-          return;
-        } else {
-          this.setData({
-            creator: getApp().globalData.users.find(user => user._openid === res.result)
-          });
-        }
+        this.setData({
+          creator: getApp().globalData.users.find(user => user._openid === res.result)
+        });
       }
     )
     if (flag) {
