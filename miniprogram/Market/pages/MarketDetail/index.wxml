@@ -7,10 +7,10 @@
       <view class="item-info_title">📌 商品名称</view>
       <view class="item-info_desc">{{item.title}}</view>
     </view>
-    <view class="form-cell">
+    <!-- <view class="form-cell">
       <view class="item-info_title">💡 购买关系</view>
       <view class="item-info_desc">此商品由{{from}}上架，由{{to}}购买。</view>
-    </view>
+    </view> -->
     <view class="form-cell">
       <view class="item-info_title">💰 商品价值：{{item.credit}} 积分</view>
       <progress percent="{{creditPercent}}" border-radius="5" font-size="8" duration="10" color="lightsalmon" active stroke-width="7"> 
