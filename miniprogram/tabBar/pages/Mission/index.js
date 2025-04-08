@@ -165,29 +165,23 @@ Page({
     const mission = this.data.unfinishedMissions[missionIndex]
 
     await wx.cloud.callFunction({name: 'getOpenId'}).then(async openid => {
-      if(mission._openid != openid.result){
-        //完成对方任务，奖金打入对方账号
-        await wx.cloud.callFunction({name: 'editAvailable', data: {_id: mission._id, value: false, list: getApp().globalData.collectionMissionList}})
-        await wx.cloud.callFunction({name: 'editCredit', data: {_openid: mission._openid, value: mission.credit, list: getApp().globalData.collectionUserList}})
+      //修改任务完成状态
+      await wx.cloud.callFunction({name: 'editAvailable', data: {_id: mission._id, value: false, list: getApp().globalData.collectionMissionList}})
+      //修改个人积分
+      await wx.cloud.callFunction({name: 'editCredit', data: {_openid: mission._openid, value: mission.credit, list: getApp().globalData.collectionUserList}})
+      //修改本周可用积分
+      await wx.cloud.callFunction({name: 'editCreditLimit', data: {_openid: mission._openid, value: mission.credit, list: getApp().globalData.collectionUserList}})
 
-        //触发显示更新
-        mission.available = false
-        this.filterMission()
+      //触发显示更新
+      mission.available = false
+      this.filterMission()
 
-        //显示提示
-        wx.showToast({
-            title: '任务完成',
-            icon: 'success',
-            duration: 2000
-        })
-
-      }else{
-        wx.showToast({
-          title: '不能完成自己的任务',
-          icon: 'error',
+      //显示提示
+      wx.showToast({
+          title: '任务完成',
+          icon: 'success',
           duration: 2000
-        })
-      }
+      })
     })
   },
 })
