@@ -17,7 +17,7 @@
     </view>
     <view class="form-cell">
       <view class="slide">
-        <view class="title">{{userB}}的积分：{{creditB}}，本周剩余可获取积分：{{limitA}}</view>
+        <view class="title">{{userB}}的积分：{{creditB}}，本周剩余可获取积分：{{limitB}}</view>
       </view>
     </view>
   </view>

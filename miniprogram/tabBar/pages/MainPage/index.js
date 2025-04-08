@@ -54,9 +54,11 @@ Page({
                 this.setData({
                     creditA:res.result.data[0].credit,
                     userA:res.result.data[0].userName,
+                    limitA:res.result.data[0].weekCreditLimit,
 
                     creditB: res.result.data[1].credit,
-                    userB:res.result.data[1].userName
+                    userB:res.result.data[1].userName,
+                    limitB:res.result.data[1].weekCreditLimit,
                 })
             })
     }
