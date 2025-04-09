@@ -44,27 +44,6 @@ style="background: white; height: 200px; width: 100%;">
       </mp-slideview>
     </view>
   </view>
-
-  <view class="form-group_label">已下架<mp-badge content="{{boughtItems.length}}" style="margin-left: 5px;" /></view>
-  <view class="form-group" wx:if="{{boughtItems.length > 0}}" 
-  style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
-    <view class="form-cell" wx:for="{{boughtItems}}" wx:key="index">
-      <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' icon="{{true}}" bindbuttontap="slideButtonTapLower">
-        <view class="slide" data-index="{{index}}" bindtap="toDetailPageLower">
-          <view class="item-info">
-            <view class="item-info_title">{{util.filterStr(item.title, 10)}}</view>
-            <view class="item-info_award">💰 {{util.filterStr(item.credit, 10)}} 积分</view>
-            <view class="item-info_date">📅 {{util.cutStr(item.date, 10)}} 创建</view>
-          </view>
-          <view class="item-info_author">
-              <image style="position: absolute; width:100%; bottom: 0;" wx:if="{{item._openid === _openidA}}" mode="widthFix" src="cloud://test-0gtbizkc74d96d88.7465-test-0gtbizkc74d96d88-1344432440/images/market/MarketA.png"/>
-              <image style="position: absolute; width:100%; bottom: 0;" wx:if="{{item._openid === _openidB}}" mode="widthFix" src="cloud://test-0gtbizkc74d96d88.7465-test-0gtbizkc74d96d88-1344432440/images/market/MarketB.png"/>
-          </view>
-          <image wx:if="{{item.star}}" class="star" src="cloud://test-0gtbizkc74d96d88.7465-test-0gtbizkc74d96d88-1344432440/images/market/Star.png" />
-        </view>
-      </mp-slideview>
-    </view>
-  </view>
 </view>
 
 <movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;">

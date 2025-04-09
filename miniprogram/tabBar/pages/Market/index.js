@@ -195,24 +195,17 @@ Page({
     const item = this.data.unboughtItems[itemIndex]
 
     await wx.cloud.callFunction({name: 'getOpenId'}).then(async openid => {
-      //如果购买自己的物品，显示提醒
-      if(item._openid === openid.result){
-        wx.showToast({
-          title: '不能购买自己的物品',
-          icon: 'error',
-          duration: 2000
-        })
       //如果没有积分，显示提醒
-      }else if(this.data.credit < item.credit){
+      if(this.data.credit < item.credit){
         wx.showToast({
           title: '积分不足...',
           icon: 'error',
           duration: 2000
         })
       }else{
-        //购买对方物品，奖金从自己账号扣除，并添加物品到自己的库里
-        wx.cloud.callFunction({name: 'editAvailable', data: {_id: item._id, value: false, list: getApp().globalData.collectionMarketList}})
+        //扣除积分
         wx.cloud.callFunction({name: 'editCredit', data: {_openid: openid.result, value: -item.credit, list: getApp().globalData.collectionUserList}})
+        //添加商品到仓库
         wx.cloud.callFunction({name: 'addElement', data: {
             list: getApp().globalData.collectionStorageList,
             credit: item.credit,
@@ -232,7 +225,7 @@ Page({
           credit: this.data.credit - item.credit
         })
 
-        item.available = false
+        //item.available = false
         this.filterItem()
       }
     })
