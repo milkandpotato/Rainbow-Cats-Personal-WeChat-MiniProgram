@@ -10,12 +10,11 @@ const db = cloud.database()
 // 云函数入口函数
 exports.main = async (context) => {
   //获取所有记录
-  const allrecords = db.collection('UserList').get();
-  for (let record in allrecords) {
-    db.collection('UserList').doc(record._id).update({
-      data: {
-        weekCreditLimit: 500
-      }
-    })
-  }
+  const users = db.collection('UserList');
+  const res = await users.where({}).update({
+    data: {
+      weekCreditLimit: 500
+    }
+  });
+  console.log("res",res);
 }
